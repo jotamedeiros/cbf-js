@@ -34,6 +34,6 @@ console.log(add(10))
 
 // Arrow function com 1 parâmetro e sem 'return' [não precisa de parênteses nem chaves {}]
 
-const nome = n => n
+// const nome = n => n
 
-console.log(nome('João'))
+// console.log(nome('João'))
