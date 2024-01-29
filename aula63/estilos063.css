@@ -17,6 +17,7 @@
 
 .carro {
     display: flex;
+    flex-direction: column;
     background-color: #8cf;
     width: 200px;
     padding: 5px;

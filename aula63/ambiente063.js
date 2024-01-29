@@ -9,6 +9,12 @@ const btn_addCarro = document.querySelector('#btn_addCarro')
 
 let a_carros = []
 
+const removerCarro = (quem) => {
+    a_carros = a_carros.filter((el) => {
+        return (el.nome != quem)
+    })
+}
+
 f_tipoMilitar.addEventListener('click', (evt) => {
     f_nome.value = ''
     f_portas.value = 0
@@ -32,8 +38,17 @@ const gerenciarExibicaoCarros = () => {
     carros.innerHTML = ''
     a_carros.map((el, i) => {
         const div = document.createElement('div')
+        const btn = document.createElement('button')
+        btn.innerHTML = `Remover`
+        btn.addEventListener('click', (evt) => {
+            const quemRemover = evt.target.parentNode.dataset.nome
+            removerCarro(quemRemover)
+            gerenciarExibicaoCarros()
+        })
         div.setAttribute('class', 'carro')
+        div.setAttribute('data-nome', el.nome)
         div.innerHTML = `Nome: ${el.nome} <br/> Portas: ${el.portas} <br/> Cor: ${el.cor} <br/> Blindagem: ${el.blindagem} <br/> Munição: ${el.municao}`
+        div.appendChild(btn)
         carros.appendChild(div)
         })
     }
@@ -86,36 +101,3 @@ class Militar extends Carro {
         }
     }
 }
-
-
-const c1 = new Carro('Normal', 4)
-c1.ligar()
-c1.setCor('Preto')
-
-
-const c2 = new Militar('Lutador', 1, 100, 50)
-c2.setCor('Branco')
-c2.atirar()
-c2.atirar()
-c2.atirar()
-c2.atirar()
-c2.atirar()
-
-
-console.log(`Nome: ${c1.nome}`)
-console.log(`Portas: ${c1.portas}`)
-console.log(`Ligado: ${(c1.ligado) ? 'Sim' : 'Não'}`)
-console.log(`Velocidade: ${c1.vel}`)
-console.log(`Cor: ${c1.cor}`)
-console.log('==================')
-console.log('')
-
-console.log(`Nome: ${c2.nome}`)
-console.log(`Portas: ${c2.portas}`)
-console.log(`Ligado: ${(c2.ligado) ? 'Sim' : 'Não'}`)
-console.log(`Velocidade: ${c2.vel}`)
-console.log(`Blindagem: ${c2.blindagem}`)
-console.log(`Munição: ${c2.municao}`)
-console.log(`Cor: ${c2.cor}`)
-console.log('==================')
-console.log('')
