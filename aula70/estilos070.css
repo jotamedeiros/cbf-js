@@ -1,0 +1,96 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    box-sizing: border-box;
+    font-size: large;
+}
+
+:root {
+    --largura: 220px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.calc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc((var(--largura)) + 10px);
+    padding: 5px;
+    background-color: #eee;
+    border: 3px solid #bbb;
+    border-radius: 5px;
+}
+
+/* título da calculadora */
+
+.div_nome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--largura);
+}
+
+/* display */
+
+.div_display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--largura);
+}
+
+.display {
+    background-color: #8a8;
+    width: var(--largura);
+    padding: 5px;
+    font-family: monospace;
+    font-size: larger;
+    text-align: right;
+}
+
+/* teclas */
+
+.div_teclas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: var(--largura);
+    /* gap: 5px; */
+}
+
+.tecla {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #aaa;
+    border: 3px solid #888;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.tecla:hover {
+    background-color: #ccc;
+}
+
+.tecla-op {
+    background-color: #f44 !important;
+    border-color: #800 !important;
+}
+
+.tecla-op:hover {
+    background-color: rgba(255, 68, 68, 0.603) !important;
+}
