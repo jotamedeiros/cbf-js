@@ -6,6 +6,9 @@ const teclaCpy = document.querySelector('#tCpy')
 const teclaLimpar = document.querySelector('#tLimpar')
 const teclaIgual = document.querySelector('#tIgual')
 const teste = document.querySelector('#teste')
+const calc = document.querySelector('#calc')
+const aba_calc = document.querySelector('#calc_aba')
+const icon = document.querySelector('.icon')
 
 let sinal = false
 let decimal = false
@@ -65,4 +68,14 @@ teclaCpy.addEventListener('click', (evt) => {
     // teste.select()
     // teste.setSelectionRange(0, 999999) // Mobile
     // navigator.clipboard.writeText(teste.value)
+})
+
+aba_calc.addEventListener('click', (evt) => {
+    calc.classList.toggle('calc_exibir')
+
+    if (calc.classList.contains('calc_exibir')) {
+        icon.src = 'images/arrow-left.svg'
+    } else {
+        icon.src = 'images/arrow-right.svg'
+    }
 })

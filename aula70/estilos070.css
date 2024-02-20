@@ -11,14 +11,29 @@
 }
 
 main {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     width: 100vw;
     height: 100vh;
 }
 
 .calc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: -230px;
+    transition: all 0.2s;
+}
+
+.calc_exibir {
+    left: 0px !important;
+    transition: all 0.2s;
+}
+
+.calc_principal {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,6 +43,17 @@ main {
     background-color: #eee;
     border: 3px solid #bbb;
     border-radius: 5px;
+}
+
+.calc_aba {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(128, 128, 128, 0.2);
+    border-radius: 0px 8px 8px 0px;
+    cursor: pointer;
 }
 
 /* título da calculadora */
