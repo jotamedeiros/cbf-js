@@ -16,11 +16,11 @@ let decimal = false
 teclasNum.map((el, i) => {
     el.addEventListener('click', (evt) => {
         sinal = false
-        if (evt.target.innerHTML == ',') {
+        if (evt.target.innerHTML == '.') {
             if (!decimal) {
                 decimal = true
                 if (display.innerHTML == '0') {
-                    display.innerHTML = '0,'
+                    display.innerHTML = '0.'
                 } else {
                     display.innerHTML += evt.target.innerHTML
                 }
