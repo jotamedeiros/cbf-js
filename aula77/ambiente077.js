@@ -29,3 +29,16 @@ const timer = () => {
 }
 
 const intervalo = setInterval(timer, 1000)
+
+
+/* timer + prático
+
+const timer = () => {
+    const data = new Date()
+
+    div_timer.innerHTML = data.toLocaleTimeString()
+}
+
+const intervalo = setInterval(timer, 1000)
+
+*/
