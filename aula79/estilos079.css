@@ -1,0 +1,76 @@
+@charset "utf-8";
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    border: none;
+}
+
+#timer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: auto;
+    padding: 15px;
+    background-color: lightgray;
+    border: 3px solid gray;
+    border-radius: 5px;
+    gap: 10px;
+}
+
+#div_timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #444;
+    color: #0f0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: larger;
+}
+
+#alarm-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    gap: 2px;
+}
+
+#alarm-hour {
+    margin-bottom: 10px;
+}
+
+input {
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    gap: 20px;
+}
+
+.button {
+    background-color: gray;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: rgb(160, 160, 160);
+}
+
+.alarme {
+    background-color: #f00 !important;
+}
