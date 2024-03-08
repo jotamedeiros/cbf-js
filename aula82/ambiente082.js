@@ -51,13 +51,32 @@ class Bola {
         const div = document.createElement('div')
         div.setAttribute('id', this.id)
         div.setAttribute('class', 'bola')
-        div.setAttribute('style', `left: ${this.px}; top: ${this.py}; width: ${this.tam}; height: ${this.tam}; background-color: rgb(${this.r}, ${this.g}, ${this.b})`)
+        div.setAttribute('style', `left: ${this.px}px; top: ${this.py}px; width: ${this.tam}px; height: ${this.tam}px; background-color: rgb(${this.r}, ${this.g}, ${this.b})`)
         this.palco.appendChild(div)
     }
 
+    controle_bordas = () => {
+        if (this.px + this.tam >= larguraPalco) {
+            this.dirx = -1
+        } else if (this.px <= 0) {
+            this.dirx = 1
+        }
+
+        if (this.py + this.tam >= alturaPalco) {
+            this.diry = -1
+        } else if (this.py <= 0) {
+            this.diry = 1
+        }
+    }
 
     controlar = () => {
-
+        this.controle_bordas()
+        this.px += this.dirx * this.velx
+        this.py += this.diry * this.vely
+        this.eu.setAttribute('style', `left: ${this.px}px; top: ${this.py}px; width: ${this.tam}px; height: ${this.tam}px; background-color: rgb(${this.r}, ${this.g}, ${this.b})`)
+        if (this.px > larguraPalco || this.py > alturaPalco) {
+            this.remover()
+        }
     }
 
 }
@@ -70,12 +89,12 @@ window.addEventListener('resize', (evt) => {
 btn_add.addEventListener('click', (evt) => {
     const qtde = txt_qtde.value
     for (let i = 0; i < qtde; i++) {
-        // Instanciar novas bolinhas
+        bolas.push(new Bola(bolas, palco))
     }
 })
 
 btn_remover.addEventListener('click', (evt) => {
     bolas.map((el) => {
-        // Remover bolinha
+        el.remover()
     })
 })
