@@ -6,14 +6,30 @@ const btn_parar = document.querySelector('#btn_parar')
 const init = () => {
     carro.style.position = 'relative'
     carro.style.left = '0px'
-
+    carro.style.width = '100px'
+    tamMax = window.innerWidth - parseInt(carro.style.width)
 }
 
 let anima = null
+let tamMax = null
 
 const move = (dir) => {
-    carro.style.left = parseInt(carro.style.left) + (10 * dir) + 'px'
-    anima = setTimeout(move, 20, dir)
+    if (dir > 0) {
+        if (parseInt(carro.style.left) <= tamMax) {
+            carro.style.left = parseInt(carro.style.left) + (10 * dir) + 'px'
+            anima = setTimeout(move, 20, dir)
+        } else {
+            clearTimeout(anima)
+        }
+    } else if (dir < 0) {
+        if (parseInt(carro.style.left) >= 0) {
+            carro.style.left = parseInt(carro.style.left) + (10 * dir) + 'px'
+            anima = setTimeout(move, 20, dir)
+        } else {
+            clearTimeout(anima)
+        }
+    }
+    console.log(tamMax)
 }
 
 btn_parar.addEventListener('click', (evt) => {
@@ -32,3 +48,6 @@ btn_direita.addEventListener('click', (evt) => {
 
 //window.onload = init
 window.addEventListener('load', init())
+window.addEventListener('resize', () => {
+    let tamMax = window.innerWidth - parseInt(carro.style.width)
+})
