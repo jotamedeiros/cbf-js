@@ -2,6 +2,8 @@ const f_nome = document.querySelector('#f_nome')
 const f_nota = document.querySelector('#f_nota')
 const f_msg = document.querySelector('#f_msg')
 
+// Utilizando 'setCustomValidity()' e criando variável 'estadoValidacao'
+
 document.querySelector('#btn_validar').addEventListener('click', (evt) => {
     let estadoValidacao = f_nota.validity
 
@@ -16,6 +18,26 @@ document.querySelector('#btn_validar').addEventListener('click', (evt) => {
     // f_msg.innerHTML = f_nota.validationMessage
     evt.preventDefault()
 })
+
+
+// Mais simples e sem utilizar setCustomValidity() ou criar variável 'estadoValidacao'
+
+/*
+document.querySelector('#btn_validar').addEventListener('click', (evt) => {
+    let msg = null
+
+    if (f_nota.validity.valueMissing) {
+        msg = 'O campo "Nota" é obrigatório!'
+    } else if (f_nota.validity.rangeOverflow) {
+        msg = 'Nossa, que nota alta você digitou!'
+    } else if (f_nota.validity.rangeUnderflow) {
+        msg = 'Eita, que nota baixa você digitou!'
+    }
+    // f_nota.reportValidity()
+    f_msg.innerHTML = msg
+    evt.preventDefault()
+})
+*/
 
 
 /* Métodos de validação do DOM
