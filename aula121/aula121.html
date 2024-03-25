@@ -8,10 +8,24 @@
 </head>
 <body>
    
-    <input type="text" name="f_texto" id="f_texto">
+    <!-- <input type="text" name="f_texto" id="f_texto">
     <br>
     <p id="p_texto"></p>
-    <button id="btn_texto">WebStorage</button>
+    <button id="btn_texto">WebStorage</button> -->
+
+    <h1>LocalStorage & SessionStorage</h1>
+    <br>
+    <form id="form">
+        <h2>Preencha o formulário para logar:</h2>
+        <label for="name">Nome:</label>
+        <input type="text" name="name" id="name" required>
+        <input type="submit" id="submit" value="Enviar">
+    </form>
+
+    <div id="welcome">
+        <h2>Seja bem-vindo <span id="username"></span></h2>
+        <button id="logout">Sair</button>
+    </div>
 
 <script src="ambiente121.js"></script>
 </body>
