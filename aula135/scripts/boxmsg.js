@@ -4,18 +4,16 @@ const estiloBox = '<link rel="stylesheet" href="./styles/boxmsg.css"></link>'
 head.innerHTML += estiloBox
 
 class Boxmsg {
-    titulo = null
-    texto = null
-    cor = null
-    destino = null
-    divmsg = null
+    static cor = '#888'
+    static destino = null
+    static divmsg = null
 
-    constructor(config) {
+    static config = (config) => {
         this.cor = config.cor
-        this.destino = document.body
     }
 
-    mostrar = (titulo, texto) => {
+    static mostrar = (titulo, texto) => {
+        this.destino = document.body
         this.titulo = titulo
         this.texto = texto
         this.divmsg = document.createElement('div')
@@ -57,7 +55,9 @@ class Boxmsg {
         rodapeBoxmsg.appendChild(btnBoxmsg)
     }
 
-    ocultar = () => {
+    static ocultar = () => {
         this.divmsg.remove()
     }
 }
+
+export {Boxmsg}
