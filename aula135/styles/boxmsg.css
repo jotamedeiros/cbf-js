@@ -58,3 +58,19 @@
     cursor: pointer;
     text-transform: uppercase;
 }
+
+.btnBoxSim {
+    color: #fff;
+    padding: 10px 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.btnBoxNao {
+    color: #fff;
+    padding: 10px 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+}

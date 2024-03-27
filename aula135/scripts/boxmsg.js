@@ -7,12 +7,15 @@ class Boxmsg {
     static cor = '#888'
     static destino = null
     static divmsg = null
+    static tipo = null
+    static comando_sn = null
+    static textos = []
 
-    static config = (config) => {
+    static mostrar = (config, titulo, texto) => {
         this.cor = config.cor
-    }
-
-    static mostrar = (titulo, texto) => {
+        this.tipo = config.tipo
+        this.textos = config.textos
+        this.comando_sn = () => {config.comando_sn()}
         this.destino = document.body
         this.titulo = titulo
         this.texto = texto
@@ -44,15 +47,39 @@ class Boxmsg {
         rodapeBoxmsg.setAttribute('class', 'rodapeBoxmsg')
         areaBoxmsg.appendChild(rodapeBoxmsg)
 
-        const btnBoxmsg = document.createElement('button')
-        btnBoxmsg.setAttribute('id', 'btnBoxmsg')
-        btnBoxmsg.setAttribute('class', 'btnBoxmsg')
-        btnBoxmsg.style.backgroundColor = `${this.cor}`
-        btnBoxmsg.innerHTML = 'ok'
-        btnBoxmsg.addEventListener('click', (evt) => {
-            this.ocultar()
-        })
-        rodapeBoxmsg.appendChild(btnBoxmsg)
+        if (this.tipo == 'ok'){
+            const btnBoxmsg = document.createElement('button')
+            btnBoxmsg.setAttribute('id', 'btnBoxmsg')
+            btnBoxmsg.setAttribute('class', 'btnBoxmsg')
+            btnBoxmsg.style.backgroundColor = `${this.cor}`
+            btnBoxmsg.innerHTML = 'ok'
+            btnBoxmsg.addEventListener('click', (evt) => {
+                this.ocultar()
+            })
+            rodapeBoxmsg.appendChild(btnBoxmsg)
+        } else if (this.tipo == 'sn') {
+            const btnBoxSim = document.createElement('button')
+            btnBoxSim.setAttribute('id', 'btnBoxSim')
+            btnBoxSim.setAttribute('class', 'btnBoxSim')
+            btnBoxSim.style.backgroundColor = `${this.cor}`
+            btnBoxSim.innerHTML = this.textos[0]
+            btnBoxSim.addEventListener('click', (evt) => {
+                this.comando_sn()
+                this.ocultar()
+            })
+            rodapeBoxmsg.appendChild(btnBoxSim)
+
+            const btnBoxNao = document.createElement('button')
+            btnBoxNao.setAttribute('id', 'btnBoxNao')
+            btnBoxNao.setAttribute('class', 'btnBoxNao')
+            btnBoxNao.style.backgroundColor = `${this.cor}`
+            btnBoxNao.innerHTML = this.textos[1]
+            btnBoxNao.addEventListener('click', (evt) => {
+                this.ocultar()
+            })
+            rodapeBoxmsg.appendChild(btnBoxNao)
+        }
+        
     }
 
     static ocultar = () => {
