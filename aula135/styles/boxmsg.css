@@ -29,3 +29,32 @@
     padding: 5px;
     border-radius: 5px 5px 0px 0px;
 }
+
+.corpoBoxmsg {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    background-color: #eee;
+    color: #000;
+    padding: 30px 5px;
+}
+
+.rodapeBoxmsg {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background-color: #ccc;
+    color: #000;
+    padding: 5px;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.btnBoxmsg {
+    color: #fff;
+    padding: 10px 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+}

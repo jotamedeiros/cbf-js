@@ -1,7 +1,7 @@
 const head = document.head
 
-const estilo = '<link rel="stylesheet" href="./styles/boxmsg.css"></link>'
-head.innerHTML += estilo
+const estiloBox = '<link rel="stylesheet" href="./styles/boxmsg.css"></link>'
+head.innerHTML += estiloBox
 
 class Boxmsg {
     titulo = null
@@ -11,13 +11,13 @@ class Boxmsg {
     divmsg = null
 
     constructor(config) {
-        this.titulo = config.titulo
-        this.texto = config.texto
         this.cor = config.cor
         this.destino = document.body
     }
 
-    mostrar = () => {
+    mostrar = (titulo, texto) => {
+        this.titulo = titulo
+        this.texto = texto
         this.divmsg = document.createElement('div')
         this.divmsg.setAttribute('id', 'divmsg')
         this.divmsg.setAttribute('class', 'divmsg')
@@ -34,9 +34,30 @@ class Boxmsg {
         tituloBoxmsg.style.backgroundColor = `${this.cor}`
         tituloBoxmsg.innerHTML = this.titulo
         areaBoxmsg.appendChild(tituloBoxmsg)
+
+        const corpoBoxmsg = document.createElement('div')
+        corpoBoxmsg.setAttribute('id', 'corpoBoxmsg')
+        corpoBoxmsg.setAttribute('class', 'corpoBoxmsg')
+        corpoBoxmsg.innerHTML = this.texto
+        areaBoxmsg.appendChild(corpoBoxmsg)
+
+        const rodapeBoxmsg = document.createElement('div')
+        rodapeBoxmsg.setAttribute('id', 'rodapeBoxmsg')
+        rodapeBoxmsg.setAttribute('class', 'rodapeBoxmsg')
+        areaBoxmsg.appendChild(rodapeBoxmsg)
+
+        const btnBoxmsg = document.createElement('button')
+        btnBoxmsg.setAttribute('id', 'btnBoxmsg')
+        btnBoxmsg.setAttribute('class', 'btnBoxmsg')
+        btnBoxmsg.style.backgroundColor = `${this.cor}`
+        btnBoxmsg.innerHTML = 'ok'
+        btnBoxmsg.addEventListener('click', (evt) => {
+            this.ocultar()
+        })
+        rodapeBoxmsg.appendChild(btnBoxmsg)
     }
 
     ocultar = () => {
-
+        this.divmsg.remove()
     }
 }

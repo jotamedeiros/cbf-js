@@ -10,12 +10,38 @@
 .btn-viewbox {
     padding: 10px 40px;
     margin: 50px 10px;
-    background-color: goldenrod;
+    background-color: #48f;
     color: white;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .btn-viewbox:hover {
-    background-color: rgb(168, 127, 24);
+    background-color: rgb(40, 80, 150);
+}
+
+.btn-viewbox2 {
+    padding: 10px 40px;
+    margin: 50px 10px;
+    background-color: #48f;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-viewbox2:hover {
+    background-color: rgb(40, 80, 150);
+}
+
+.btn-viewbox3 {
+    padding: 10px 40px;
+    margin: 50px 10px;
+    background-color: #48f;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-viewbox3:hover {
+    background-color: rgb(40, 80, 150);
 }
